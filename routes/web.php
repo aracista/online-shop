@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('home');
+Route::get('/phones','HomeController@phones')->name('phones');
+Route::get('/phone','HomeController@phone')->name('phone');
+
