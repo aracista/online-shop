@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/','HomeController@index')->name('home');
-Route::get('/phones','HomeController@phones')->name('phones');
-Route::get('/phone','HomeController@phone')->name('phone');
+Route::get('/','FrontController@index')->name('home');
+Route::get('/phones','FrontController@phones')->name('phones');
+Route::get('/phone','FrontController@phone')->name('phone');
 
+
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
+    Route::get('/', function() {
+    	return view('admin.index');
+    })->name('admin.index');
+});
