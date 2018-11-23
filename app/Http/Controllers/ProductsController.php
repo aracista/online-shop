@@ -15,7 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -37,6 +38,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,[
+            'nama' => 'required',
+            'warna' => 'required',
+            'harga' => 'required',
+            'gambar' => 'required | mimes:jpeg,jpg,png|max:10000',
+
+        ]);
+
+
         $formInput = $request->except('image');
 
         $gambar = $request->file('gambar');

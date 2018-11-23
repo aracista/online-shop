@@ -12,7 +12,7 @@
                 </strong>
             </h2>
             <br>
-            <a href="/handphone">
+            <a href="/phones">
             	<button class="button large">Check out Product</button>
             </a>
         </section>
@@ -25,6 +25,8 @@
        
         <!-- Latest SHirts -->
         <div class="row">
+            @forelse($phones->chunk(4) as $chunk)
+            @foreach($chunk as $phone)
             <div class="small-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
@@ -32,91 +34,26 @@
                             Add to Cart
                         </a>
                         <a href="#">
-                            <img src="http://i.imgur.com/Mcw06Yt.png"/>
+                            <img src="{{url('gambar', $phone->gambar)}}"/>
                         </a>
                     </div>
-                    <a href="#">
+                    <a href="{{route('phone')}}">
                         <h3>
-                            Kickin with Kraken Tee
+                            {{$phone->nama}}
                         </h3>
                     </a>
                     <h5>
-                        $19.99
+                        Rp{{$phone->harga}}
                     </h5>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
+                        {{$phone->deskripsi}}
                     </p>
                 </div>
             </div>
-            <div class="small-3 columns">
-                <div class="item-wrapper">
-                    <div class="img-wrapper">
-                        <a class="button expanded add-to-cart">
-                            Add to Cart
-                        </a>
-                        <a href="#">
-                            <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                        </a>
-                    </div>
-                    <a href="#">
-                        <h3>
-                            Kickin with Kraken Tee
-                        </h3>
-                    </a>
-                    <h5>
-                        $19.99
-                    </h5>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-                    </p>
-                </div>
-            </div>
-            <div class="small-3 columns">
-                <div class="item-wrapper">
-                    <div class="img-wrapper">
-                        <a class="button expanded add-to-cart">
-                            Add to Cart
-                        </a>
-                        <a href="#">
-                            <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                        </a>
-                    </div>
-                    <a href="#">
-                        <h3>
-                            Kickin with Kraken Tee
-                        </h3>
-                    </a>
-                    <h5>
-                        $19.99
-                    </h5>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-                    </p>
-                </div>
-            </div>
-            <div class="small-3 columns">
-                <div class="item-wrapper">
-                    <div class="img-wrapper">
-                        <a class="button expanded add-to-cart">
-                            Add to Cart
-                        </a>
-                        <a href="#">
-                            <img src="http://i.imgur.com/Mcw06Yt.png"/>
-                        </a>
-                    </div>
-                    <a href="#">
-                        <h3>
-                            Kickin with Kraken Tee
-                        </h3>
-                    </a>
-                    <h5>
-                        $19.99
-                    </h5>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin posuere sem enim, accumsan convallis risus semper.
-                    </p>
-                </div>
-            </div>
+            @endforeach
+            @empty
+            <h3>No Products</h3>
+            @endforelse
         </div>
         <!-- Footer -->
         <br>

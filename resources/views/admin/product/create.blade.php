@@ -18,6 +18,10 @@
 			<input type="text" name="deskripsi" value="" class="form-control">
 		</div>
 		<div class="form-group">
+			<label for="harga">Harga</label>
+			<input type="text" name="harga" value="" class="form-control">
+		</div>
+		<div class="form-group">
 			<label for="warna">Warna</label>
 			<select name="warna" class="form-control">
 				<option value="biru">Biru</option>
