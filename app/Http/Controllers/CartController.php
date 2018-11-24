@@ -1,12 +1,12 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
 use App\Product;
+use Cart;
 
-class ProductsController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('admin.product.index',compact('products'));
+       $cartItems = Cart::getContent();
+        return view('cart.index',compact('cartItems'));
     }
 
     /**
@@ -24,10 +24,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($productId)
     {
-        $categories = Category::all();
-        return view('admin.product.create',compact('categories'));
+        
     }
 
     /**
@@ -38,26 +37,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'nama' => 'required',
-            'warna' => 'required',
-            'harga' => 'required',
-            'gambar' => 'required | mimes:jpeg,jpg,png|max:10000',
-
-        ]);
-
-
-        $formInput = $request->except('image');
-
-        $gambar = $request->file('gambar');
-        if($gambar){
-            $namagambar = $gambar->getClientOriginalName();
-            $gambar->move('gambar/',$namagambar);
-            $formInput['gambar']=$namagambar;
-        }
-        Product::create($formInput);
-
-        return redirect()->route('product.index');
+        //
     }
 
     /**
@@ -79,7 +59,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        Cart::add($id,$product->nama,$product->harga,1,array('warna'=>'biru'));
+        return back();
     }
 
     /**
@@ -91,7 +73,10 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       Cart::update($id, array(
+        'quantity' => $request->quantity,
+      ));
+        return back();
     }
 
     /**

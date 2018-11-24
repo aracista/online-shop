@@ -30,11 +30,11 @@
             <div class="small-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
-                        <a class="button expanded add-to-cart">
+                        <a href="{{route('cart.edit',$phone->id)}}" class="button expanded add-to-cart">
                             Add to Cart
                         </a>
                         <a href="#">
-                            <img src="{{url('gambar', $phone->gambar)}}"/>
+                            <img src="{{url('gambar', $phone->gambar)}}" class="img-responsive" style="height: 260px;" />
                         </a>
                     </div>
                     <a href="{{route('phone')}}">
