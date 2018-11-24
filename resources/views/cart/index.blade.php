@@ -19,31 +19,34 @@
 			<tr>
 				<td>{{$cartItem->name}}</td>
 				<td>Rp&nbsp;{{$cartItem->price}}</td>
-				<td>
+				<td style="width: 50px;">
 					<form action="{{route('cart.update',$cartItem->id)}}" method="POST" role="form">
 						@csrf
 						@method('PUT')
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="quantity" value="1">
+							<input type="text" class="form-control" name="quantity" value="{{$cartItem->quantity}}">
 						</div>
-						<input type="submit" class="btn btn-sm btn-default" value="+"></input>
-					</form>
-					<label>{{$cartItem->quantity}}</label>
-					<form action="{{route('cart.update',$cartItem->id)}}" method="POST" role="form">
-						@csrf
-						@method('PUT')
+
+						<td>
 						<div class="form-group">
-							<input type="hidden" class="form-control" name="quantity" value="-1">
+							<select name="warna" id="inputWarna" class="form-control" required="required">
+								
+								<option value="{{$cartItem->attributes->has('warna')?$cartItem->attributes->warna:''}}">{{$cartItem->attributes->has('warna')?$cartItem->attributes->warna:''}}</option>
+								<option value="merah">Merah</option>
+								<option value="biru">Biru</option>
+								<option value="putih">Putih</option>
+							</select>
 						</div>
-						<input type="submit" class="btn btn-sm btn-default" value="-"></input>
-					</form>
-				</td>  
-				<td>{{$cartItem->attributes->has('warna')?$cartItem->attributes->warna:''}}</td>
+					</td>
+						
+				  
 				<td>
+					<input style="float: left;" type="submit" class="button success small" value="OK"></input>
+					</form>
 					<form action="{{route('cart.destroy',$cartItem->id)}}" method="POST" role="form">
 						@csrf
 						@method('DELETE')
-						<button type="submit" class="button btn-danger" value="Delete">Delete</button>
+						<button type="submit" class="button small alert" value="Delete">Delete</button>
 					</form>
 				</td>
 			</tr>
@@ -58,7 +61,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<a href="" class="button">Checkout</a>
+	<a href="{{url('/checkout')}}" class="button">Checkout</a>
 </div>
 
 @endsection

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
-use Cart;
+use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class AddressController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-       $cartItems = Cart::getContent();
-        return view('cart.index',compact('cartItems'));
+        //
     }
 
     /**
@@ -24,9 +22,9 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($productId)
+    public function create()
     {
-        
+        //
     }
 
     /**
@@ -37,7 +35,18 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,[
+            'addressline'=>'required',
+            'city'=>'required',
+            'state'=>'required',
+            'zip'=>'required|integer',
+            'country'=>'required',
+            'phone'=>'required|integer',
+        ]);
+
+        Auth::user()->address()->create($request->all());
+       
     }
 
     /**
@@ -59,14 +68,7 @@ class CartController extends Controller
      */
     public function edit($id)
     {
-        
-    }
-
-    public function addItem($id)
-    {
-        $product = Product::find($id);
-        Cart::add($id,$product->nama,$product->harga,1,array('warna'=>'biru'));
-        return back();
+        //
     }
 
     /**
@@ -78,14 +80,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-       Cart::update($id, array(
-        'quantity' => array(
-        'relative' => false,
-        'value' => $request->quantity),
-        'attributes'=> array('warna'=>$request->warna),
-        ));
-        return back();
+        //
     }
 
     /**
@@ -96,7 +91,6 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
-        return back();
+        //
     }
 }

@@ -12,7 +12,7 @@ HANDPHONES
              <div class="small-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
-                        <a href="{{route('cart.edit',$phone->id)}}" class="button expanded add-to-cart">
+                        <a href="{{route('cart.addItem',$phone->id)}}" class="button expanded add-to-cart">
                             Add to Cart
                         </a>
                         <a href="#">
