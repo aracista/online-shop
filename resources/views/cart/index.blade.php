@@ -25,7 +25,8 @@
 							<input type="hidden" class="form-control" name="quantity" value="1">
 						</div>
 						<input type="submit" class="btn btn-sm btn-default" value="+"></input>
-					</form>{{$cartItem->quantity}}
+					</form>
+					<label>{{$cartItem->quantity}}</label>
 					<form action="{{route('cart.update',$cartItem->id)}}" method="POST" role="form">
 						@csrf
 						@method('PUT')
@@ -34,7 +35,7 @@
 						</div>
 						<input type="submit" class="btn btn-sm btn-default" value="-"></input>
 					</form>
-				</td>
+				</td>  
 				<td>{{$cartItem->attributes->has('warna')?$cartItem->attributes->warna:''}}</td>
 			</tr>
 			@endforeach
