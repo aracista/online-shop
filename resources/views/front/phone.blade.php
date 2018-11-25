@@ -12,7 +12,7 @@ HANDPHONE
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="#">
-                             <img src="http://i.imgur.com/Mcw06Yt.png"/>
+                             <img src="{{asset('gambar', $product->gambar)}}"/>
                         </a>
                     </div>
                 </div>
@@ -20,21 +20,29 @@ HANDPHONE
             <div class="small-6 columns">
                 <div class="item-wrapper">
                     <h3 class="subheader">
-                       <span class="price-tag">$20</span> Mc-Mykey Designed Shirt
+                       <span class="price-tag">Rp {{$product->harga}}</span> Teleshop
                     </h3>
                     <div class="row">
                         <div class="large-12 columns">
+                            <p>
+                                {!! $product->deskripsi !!}
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
                             <label>
-                                Select Size
+                                pilih warna
                                 <select>
                                     <option value="small">
-                                        Small
+                                        Biru
                                     </option>
                                     <option value="medium">
-                                        Medium
+                                        Merah
                                     </option>
                                     <option value="large">
-                                        Large
+                                        Putih
                                     </option>
                                    
                                 </select>
@@ -42,7 +50,7 @@ HANDPHONE
                             <a href="#" class="button  expanded">Add to Cart</a>
                         </div>
                     </div>
-                <p class="text-left subheader"><small>* Designed by <a href="https://www.youtube.com/webdevmatics">Webdevmatics</a></small></p>
+                <p class="text-left subheader"><small>* Designed by Aracista</a></small></p>
 
                 </div>
             </div>

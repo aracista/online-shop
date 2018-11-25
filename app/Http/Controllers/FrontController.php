@@ -19,8 +19,8 @@ class FrontController extends Controller
     	return view('front.phones',compact('phones'));
     }
 
-   public function phone()
+   public function phone(Product $product)
     {
-    	return view('front.phone');
+        return view('front.phone',compact('product'));
     }
 }

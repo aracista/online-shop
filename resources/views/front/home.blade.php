@@ -5,7 +5,7 @@
             <br/>
             <br/>
             <br/>
-            <br/>
+            <br/> 
             <h2 >
                 <strong>
                     Hey! Welcome to Teleshop
@@ -37,7 +37,7 @@
                             <img src="{{url('gambar', $phone->gambar)}}" class="img-responsive" style="height: 260px;" />
                         </a>
                     </div>
-                    <a href="{{route('phone')}}">
+                    <a href="#">
                         <h3>
                             {{$phone->nama}}
                         </h3>

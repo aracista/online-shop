@@ -19,7 +19,7 @@ HANDPHONES
                             <img src="{{url('gambar', $phone->gambar)}}" class="img-responsive" style="height: 260px;" />
                         </a>
                     </div>
-                    <a href="{{route('phone')}}">
+                    <a href="#">
                         <h3>
                             {{$phone->nama}}
                         </h3>

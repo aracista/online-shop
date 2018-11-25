@@ -31,11 +31,11 @@
                 <ol class="menu">
                     <li>
                         <a href="{{route('phones')}}">
-                            HANDPHONE
+                            PRODUCT
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#"> 
                             CONTACT
                         </a>
                     </li>
@@ -59,7 +59,7 @@
   <div class="row full-width">
     <div class="small-12 medium-4 large-4 columns">
       <i class="fi-laptop"></i>
-      <p>Coded with love by Webdevmatics for educational purpose only</p>
+      <p>Coded with love by Aracista</p>
     </div>
     <div class="small-12 medium-4 large-4 columns">
       <i class="fi-html5"></i>
@@ -69,9 +69,9 @@
     <div class="small-6 medium-4 large-4 columns">
       <h4>Follow Us</h4>
       <ul class="footer-links">
-        <li><a href="https://github.com/webdevmatics">GitHub</a></li>
+        <li><a href="#">GitHub</a></li>
         <li><a href="#">Facebook</a></li>
-        <li><a href="https://twitter.com/webdevmatics">Twitter</a></li>
+        <li><a href="#">Twitter</a></li>
       <ul>
     </div>
   </div>
