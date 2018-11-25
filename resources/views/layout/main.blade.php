@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="{{asset('dist/css/foundation.css')}}"/>
         <link rel="stylesheet" href="{{asset('dist/css/app.css')}}"/>
+        <link rel="stylesheet" href="{{asset('css/payment.css')}}"/>
+
         <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
 
@@ -74,8 +76,11 @@
     </div>
   </div>
 	</footer>
-
+    
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="{{asset('dist/js/vendor/jquery.js')}}"></script>
     <script src="{{asset('dist/js/app.js')}}"></script>
+    <script src="{{asset('js/payment.js')}}"></script>
+
     </body>
 </html>
