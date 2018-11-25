@@ -19,4 +19,18 @@ class OrderController extends Controller
 
     	return view('admin.orders',compact('orders'));
     }
+
+    public function toggledeliver(Request $request,$orderId)
+    {
+    	$order = Order::find($orderId);
+    	if($request->has('delivered')){
+    		$order->delivered=$request->delivered;
+    	}else{
+    		$order->delivered="0";
+    	}
+    	
+    	$order->save();
+
+    	return back();
+    }
 }

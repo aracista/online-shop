@@ -5,7 +5,12 @@
     	@foreach($orders as $orders)
     	<li>
     		<h4>Order by {{$orders->user->name}} <br> Total Harga {{$orders->total}}</h4>
-    		<h5>Items</h5>
+    		<form action="{{route('toggle.deliver',$orders->id)}}" method="post" class="pull-right">
+    			@csrf
+    			<label for="delivered">Delivered	</label>
+  				<input type="checkbox" name="delivered" value="1" {{$orders->delivered==1?"checked":""}}>
+  				<input type="submit" name="" value="Submit">
+    		</form>
     		<table class="table table-bordered">
     			<tr>
     				<th>Nama</th>
