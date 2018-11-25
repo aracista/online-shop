@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cart;
+use App\Order;
 
 class CheckoutController extends Controller
 {
-    public function step1()
-    {
-    	if(Auth::check()){
-    		return redirect()->route('checkout.shipping');
-    	}
+    // public function step1()
+    // {
+    // 	if(Auth::check()){
+    // 		return redirect()->route('checkout.shipping');
+    // 	}
 
-    	return redirect('login');
-    }
+    // 	return redirect('login');
+    // }
 
     public function shipping()
     {
@@ -46,5 +47,10 @@ class CheckoutController extends Controller
             'source' => $token,
             'metadata' => ['order_id' => 6735],
         ]);
+
+        //create the order
+        Order::createOrder();
+
+        return "Order Completed";
     }
 }

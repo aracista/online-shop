@@ -42,7 +42,7 @@ class AddressController extends Controller
             'state'=>'required',
             'zip'=>'required|integer',
             'country'=>'required',
-            'phone'=>'required|integer',
+            'phone'=>'required',
         ]);
 
         Auth::user()->address()->create($request->all());
