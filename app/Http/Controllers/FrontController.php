@@ -19,8 +19,9 @@ class FrontController extends Controller
     	return view('front.phones',compact('phones'));
     }
 
-   public function phone(Product $product)
+   public function phone($id)
     {
-        return view('front.phone',compact('product'));
+        $phone = Product::find($id);
+        return view('front.phone',compact('phone'));
     }
 }

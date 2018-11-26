@@ -37,7 +37,7 @@
                             <img src="{{url('gambar', $phone->gambar)}}" class="img-responsive" style="height: 260px;" />
                         </a>
                     </div>
-                    <a href="#">
+                    <a href="{{route('phone',$phone->id)}}">
                         <h3>
                             {{$phone->nama}}
                         </h3>

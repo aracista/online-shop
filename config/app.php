@@ -164,6 +164,7 @@ return [
          * Package Service Providers...
          */
         Darryldecode\Cart\CartServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

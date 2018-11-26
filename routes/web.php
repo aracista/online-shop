@@ -13,7 +13,7 @@
 
 Route::get('/','FrontController@index')->name('home');
 Route::get('/phones','FrontController@phones')->name('phones');
-Route::get('/phone','FrontController@phone')->name('phone');
+Route::get('/phone/{id}','FrontController@phone')->name('phone');
 
 
 Auth::routes();
